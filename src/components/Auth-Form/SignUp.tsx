@@ -54,7 +54,7 @@ export default function SignUpModal({ initialFormType }: { initialFormType?: For
             </DialogHeader>
             <LoginForm onSubmit={handleLoginSubmit} /> {/* Use the LoginForm component */}
             <div className="mt-4 text-center text-sm text-gray-500">
-              Don't have an account?{" "}
+              Dont have an account?{" "}
               <a href="#" className="text-primary hover:underline" onClick={() => setFormType("signup")}>
                 Sign up
               </a>
@@ -113,7 +113,7 @@ export default function SignUpModal({ initialFormType }: { initialFormType?: For
               The link will expire within the next 15 minutes.
             </DialogDescription>
             <DialogDescription>
-              Still can't find the email? No worries.
+              Still cant find the email? No worries.
             </DialogDescription>
             <Button onClick={handleResendEmail} className="w-full">
               Resend Email Verification
