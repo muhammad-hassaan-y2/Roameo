@@ -137,7 +137,7 @@ export default function SignUpModal({ initialFormType }: { initialFormType?: For
           className="w-full bg-[#12321D] text-white rounded-full"
           onClick={() => setFormType("signup")}
         >
-          Sign Up
+          Create an Account
         </Button>
       </DialogTrigger>
 
