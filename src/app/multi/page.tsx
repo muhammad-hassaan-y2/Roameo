@@ -1,7 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Check, ChevronLeft, ChevronRight, Upload, Map, Users, Lightbulb, DollarSign } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 const steps = ['Intro to Key Features', 'Profile Setup', 'Preferences Setup']
 const keyFeatures = [
@@ -104,10 +108,10 @@ export default function Component() {
             {currentSubStep === 0 ? (
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                  <Label htmlFor="username" className="block text-sm font-medium text-gray-700">
                     Username (required)
-                  </label>
-                  <input
+                  </Label>
+                  <Input
                     type="text"
                     id="username"
                     value={username}
@@ -117,9 +121,9 @@ export default function Component() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="bio" className="block text-sm font-medium text-gray-700">
+                  <Label htmlFor="bio" className="block text-sm font-medium text-gray-700">
                     Bio (optional)
-                  </label>
+                  </Label>
                   <textarea
                     id="bio"
                     value={bio}
@@ -132,13 +136,16 @@ export default function Component() {
             ) : (
               <div className="flex flex-col items-center space-y-4">
                 <p className="text-gray-600">Upload your profile picture</p>
-                <label className="flex items-center justify-center w-40 h-40 rounded-full border-2 border-gray-300 border-dashed cursor-pointer hover:border-gray-400 focus:outline-none overflow-hidden">
-                  <input type="file" className="sr-only" onChange={handleFileUpload} accept="image/*" />
+                <Label className="flex items-center justify-center w-40 h-40 rounded-full border-2 border-gray-300 border-dashed cursor-pointer hover:border-gray-400 focus:outline-none overflow-hidden">
+                  <Input type="file" className="sr-only" onChange={handleFileUpload} accept="image/*" />
                   {profilePicture ? (
-                    <img
+                    <Image
                       src={URL.createObjectURL(profilePicture)}
                       alt="Profile"
                       className="w-full h-full object-cover"
+                      width={150}
+                      height={150}
+                      layout="responsive"
                     />
                   ) : (
                     <div className="text-center">
@@ -146,7 +153,7 @@ export default function Component() {
                       <p className="mt-1 text-sm text-gray-600">Click to upload</p>
                     </div>
                   )}
-                </label>
+                </Label>
               </div>
             )}
           </div>
@@ -158,9 +165,9 @@ export default function Component() {
             <p className="text-gray-600">Select your travel preferences</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="accommodation" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="accommodation" className="block text-sm font-medium text-gray-700">
                   Preferred Accommodation Type
-                </label>
+                </Label>
                 <select
                   id="accommodation"
                   value={preferences.accommodation}
@@ -174,9 +181,9 @@ export default function Component() {
                 </select>
               </div>
               <div>
-                <label htmlFor="activities" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="activities" className="block text-sm font-medium text-gray-700">
                   Favorite Activities
-                </label>
+                </Label>
                 <select
                   id="activities"
                   value={preferences.activities}
@@ -190,9 +197,9 @@ export default function Component() {
                 </select>
               </div>
               <div>
-                <label htmlFor="climate" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="climate" className="block text-sm font-medium text-gray-700">
                   Preferred Climate
-                </label>
+                </Label>
                 <select
                   id="climate"
                   value={preferences.climate}
@@ -206,9 +213,9 @@ export default function Component() {
                 </select>
               </div>
               <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-gray-700">
+                <Label htmlFor="budget" className="block text-sm font-medium text-gray-700">
                   Budget Range
-                </label>
+                </Label>
                 <select
                   id="budget"
                   value={preferences.budget}
@@ -234,7 +241,7 @@ export default function Component() {
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <h1 className="text-3xl font-bold text-center text-gray-900">Welcome to Our Travel App</h1>
-          <p className="mt-2 text-center text-gray-600">Let's get you set up in just a few easy steps!</p>
+          <p className="mt-2 text-center text-gray-600">Let&rsquo;s get you set up in just a few easy steps!</p>
 
           <div className="flex mt-8">
             {/* Step Indicator */}
@@ -267,30 +274,30 @@ export default function Component() {
 
               <div className="mt-8 flex justify-end space-x-4">
                 {currentStep > 0 && (
-                  <button
+                  <Button
                     onClick={handlePrevious}
                     className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     <ChevronLeft className="mr-2 h-5 w-5" />
                     Previous
-                  </button>
+                  </Button>
                 )}
                 {currentStep < 2 ? (
-                  <button
+                  <Button
                     onClick={handleNext}
                     className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     disabled={(currentStep === 1 && currentSubStep === 0 && !username) || (currentStep === 1 && currentSubStep === 1 && !profilePicture)}
                   >
                     Next
                     <ChevronRight className="ml-2 h-5 w-5" />
-                  </button>
+                  </Button>
                 ) : (
-                  <button
+                  <Button
                     onClick={() => console.log('Skipping to dashboard')}
                     className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                   >
                     Skip to Dashboard
-                  </button>
+                  </Button>
                 )}
               </div>
             </div>
