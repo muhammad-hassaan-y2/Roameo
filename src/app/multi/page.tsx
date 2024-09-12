@@ -21,7 +21,7 @@ export default function Component() {
   const [completedSteps, setCompletedSteps] = useState([false, false, false])
   const [username, setUsername] = useState('')
   const [bio, setBio] = useState('')
-  const [profilePicture, setProfilePicture] = useState(null)
+  const [profilePicture, setProfilePicture] = useState<File | null>(null)
   const [preferences, setPreferences] = useState({
     accommodation: '',
     activities: '',
@@ -65,10 +65,10 @@ export default function Component() {
     }
   }
 
-  const handleFileUpload = (event: { target: { files: any[] } }) => {
-    const file = event.target.files[0]
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files ? event.target.files[0] : null;
     if (file) {
-      setProfilePicture(file)
+      setProfilePicture(file);
     }
   }
 
