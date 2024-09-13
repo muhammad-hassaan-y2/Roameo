@@ -1,4 +1,3 @@
-// components/StepContent.tsx
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Upload, Map, Users, Lightbulb, DollarSign } from 'lucide-react'
