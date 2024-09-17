@@ -41,7 +41,7 @@ export default function Dashboard() {
               <PlusCircle className="text-green-500 w-16 h-16" />
             </div>
             <h2 className="text-2xl font-semibold mb-4">Hey Username</h2>
-            <p className="text-gray-600 mb-4">You have no trips yet, let's create a new trip</p>
+            <p className="text-gray-600 mb-4">You have no trips yet, let&apos;s create a new trip</p>
             <Button onClick={handleCreateNewTrip} className="bg-green-500 hover:bg-green-600">Create a new trip</Button>
           </div>
         )}
@@ -49,7 +49,7 @@ export default function Dashboard() {
           <div>
             <h1 className="text-3xl font-bold mb-4">Your Trips</h1>
             {trips.length === 0 ? (
-              <p className="text-gray-600">You haven't created any trips yet.</p>
+              <p className="text-gray-600">You haven&apos;t created any trips yet.</p>
             ) : (
               <ul className="space-y-4">
                 {trips.map((trip, index) => (
