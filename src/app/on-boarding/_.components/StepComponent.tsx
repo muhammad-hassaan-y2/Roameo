@@ -1,6 +1,13 @@
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Upload, Map, Users, Lightbulb, DollarSign } from 'lucide-react'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 interface StepContentProps {
   currentStep: number
@@ -64,6 +71,7 @@ export default function StepContent({
       return (
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold">Step 2: Profile Setup</h2>
+          <p>Complete your profile for tailored travel suggestions.</p>
           <form className="space-y-4">
             <div>
               <Label htmlFor="username" className="block text-sm font-medium text-gray-700">
@@ -113,76 +121,80 @@ export default function StepContent({
       )
     case 2:
       return (
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Step 3: Preferences Setup</h2>
-          <p className="text-gray-600">Select your travel preferences</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="accommodation" className="block text-sm font-medium text-gray-700">
-                Preferred Accommodation Type
-              </Label>
-              <select
-                id="accommodation"
-                value={preferences.accommodation}
-                onChange={(e) => handlePreferenceChange('accommodation', e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300"
-              >
-                <option value="">Select an option</option>
-                <option value="hotel">Hotel</option>
-                <option value="hostel">Hostel</option>
-                <option value="apartment">Apartment</option>
-              </select>
-            </div>
-            <div>
-              <Label htmlFor="activities" className="block text-sm font-medium text-gray-700">
-                Favorite Activities
-              </Label>
-              <select
-                id="activities"
-                value={preferences.activities}
-                onChange={(e) => handlePreferenceChange('activities', e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300"
-              >
-                <option value="">Select an option</option>
-                <option value="sightseeing">Sightseeing</option>
-                <option value="adventure">Adventure</option>
-                <option value="relaxation">Relaxation</option>
-              </select>
-            </div>
-            <div>
-              <Label htmlFor="climate" className="block text-sm font-medium text-gray-700">
-                Preferred Climate
-              </Label>
-              <select
-                id="climate"
-                value={preferences.climate}
-                onChange={(e) => handlePreferenceChange('climate', e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300"
-              >
-                <option value="">Select an option</option>
-                <option value="tropical">Tropical</option>
-                <option value="mediterranean">Mediterranean</option>
-                <option value="alpine">Alpine</option>
-              </select>
-            </div>
-            <div>
-              <Label htmlFor="budget" className="block text-sm font-medium text-gray-700">
-                Budget Range
-              </Label>
-              <select
-                id="budget"
-                value={preferences.budget}
-                onChange={(e) => handlePreferenceChange('budget', e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300"
-              >
-                <option value="">Select an option</option>
-                <option value="budget">Budget</option>
-                <option value="moderate">Moderate</option>
-                <option value="luxury">Luxury</option>
-              </select>
-            </div>
-          </div>
+          <div className="space-y-4">
+       <h2 className="text-2xl font-semibold">Step 3: Set Travel Preferences</h2>
+       <p className="text-gray-600">Set your preferences now or choose to skip later.</p>
+  
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+         <div>
+        <label htmlFor="accommodation" className="block text-sm font-medium text-black">
+          Preferred accommodation type
+        </label>
+         <select
+          id="accommodation"
+          value={preferences.accommodation}
+          onChange={(e) => handlePreferenceChange('accommodation', e.target.value)}
+          className="mt-2 w-full border-b-2 border-green-800 bg-transparent text-black focus:outline-none focus:border-green-800"
+           >
+          <option value="">Select an option</option>
+          <option value="hotel">Hotel</option>
+          <option value="hostel">Hostel</option>
+          <option value="apartment">Apartment</option>
+         </select>
         </div>
+
+        <div>
+         <label htmlFor="activities" className="block text-sm font-medium text-black">
+           Activity Types
+          </label>
+         <select
+          id="activities"
+          value={preferences.activities}
+          onChange={(e) => handlePreferenceChange('activities', e.target.value)}
+          className="mt-2 w-full border-b-2 border-green-800 bg-transparent text-black focus:outline-none focus:border-green-800"
+          >
+          <option value="">Select an option</option>
+          <option value="sightseeing">Sightseeing</option>
+          <option value="adventure">Adventure</option>
+          <option value="relaxation">Relaxation</option>
+        </select>
+       </div>
+
+      <div>
+        <label htmlFor="climate" className="block text-sm font-medium text-black">
+          Preferred travel climate
+        </label>
+        <select
+          id="climate"
+          value={preferences.climate}
+          onChange={(e) => handlePreferenceChange('climate', e.target.value)}
+          className="mt-2 w-full border-b-2 border-green-800 bg-transparent text-black focus:outline-none focus:border-green-800"
+         >
+           <option value="">Select an option</option>
+           <option value="tropical">Tropical</option>
+           <option value="mediterranean">Mediterranean</option>
+           <option value="alpine">Alpine</option>
+         </select>
+       </div>
+
+       <div>
+        <label htmlFor="budget" className="block text-sm font-medium text-black">
+          Budget Range
+       </label>
+       <select
+         id="budget"
+         value={preferences.budget}
+         onChange={(e) => handlePreferenceChange('budget', e.target.value)}
+         className="mt-2 w-full border-b-2 border-green-800 bg-transparent text-black focus:outline-none focus:border-green-800"
+        >
+         <option value="">Budget Range</option>
+         <option value="budget">Budget</option>
+         <option value="moderate">Moderate</option>
+         <option value="luxury">Luxury</option>
+       </select>
+        </div>
+      </div>
+     </div>
       )
     default:
       return null

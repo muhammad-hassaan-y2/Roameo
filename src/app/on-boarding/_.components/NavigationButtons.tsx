@@ -27,27 +27,30 @@ export default function NavigationButtons({
       {currentStep > 0 && (
         <Button
           onClick={handlePrevious}
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200"
-        >
-          <ChevronLeft className="mr-2 h-5 w-5" />
-          Previous
+          className="inline-flex items-center py-2 border border-[#27623B] text-sm 
+          font-medium rounded-2xl text-[#27623B] bg-white hover:bg-transparent"
+        ><span className='mr-3'/>
+          Prev
+          <span className='ml-3'/>
         </Button>
       )}
       {currentStep < 2 ? (
         <Button
           onClick={handleNext}
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm 
+          font-medium rounded-md text-white bg-[#27623B] hover:bg-[#27623B]"
           disabled={isDisabled}
         >
-          <>
+          <span className='mr-3'/>
             Next
-            <ChevronRight className="ml-2 h-5 w-5" />
-          </>
+            
+          <span className='ml-3'/>
         </Button>
       ) : (
         <Button
           onClick={handleSkipToDashboard}
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+          className="inline-flex items-center px-4 py-2 border border-transparent
+           text-sm font-medium rounded-md text-white bg-[#27623B] hover:bg-[#27623B]"
         >
           Skip to Dashboard
         </Button>

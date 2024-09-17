@@ -13,17 +13,17 @@ export default function Stepper({ steps, currentStep, completedSteps }: StepperP
         {steps.map((step, index) => (
           <div key={step} className="flex flex-col items-center">
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center ${
+              className={`w-16 h-16 rounded-full flex items-center justify-center ${
                 completedSteps[index]
-                  ? 'bg-green-500 text-white'
+                  ? 'bg-[#12321D] text-white'
                   : index === currentStep
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-300 text-gray-600'
+                  ? 'bg-[#12321D] text-white rounded-full border border-black'
+                  : 'bg-[#12321D] text-white'
               }`}
             >
               {completedSteps[index] ? <Check className="w-6 h-6" /> : index + 1}
             </div>
-            {index < steps.length - 1 && <div className="h-16 w-1 bg-gray-300 my-1" />}
+            {index < steps.length - 1 && <div className="h-36 w-[6px] bg-[#12321D] my-1" />}
           </div>
         ))}
       </div>

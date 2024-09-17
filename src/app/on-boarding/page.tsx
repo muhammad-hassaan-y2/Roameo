@@ -73,7 +73,7 @@ export default function Component() {
 
   return (
     <div className="min-h-screen w-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-7xl bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="w-full   overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <h1 className="text-3xl font-bold text-center text-gray-900">Welcome to Roamio!</h1>
           <p className="mt-2 text-center text-gray-600">Let’s get you set up in just a few easy steps!</p>
